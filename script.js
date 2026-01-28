@@ -29,12 +29,20 @@ let computerPick=getComputerChoice();
 
 function playRound(humanPick, computerPick) {
 
-    if (humanPick===computerPick) {return "It's a tie!";}
-    else if (humanPick==="rock" && computerPick==="scissors") {return "You Win!";}
-    else if (humanPick==="paper" && computerPick==="rock") {return "You Win!";}
-    else if (humanPick==="scissors" && computerPick==="paper") {return "You Win!";}
-    else return "Sorry, You lose!";
+    if (humanPick===computerPick) return "It's a Tie!";
+    else if (
+        (humanPick==="rock"&&computerPick==="scissors")||
+        (humanPick==="paper"&&computerPick==="rock")||
+        (humanPick==="scissors"&&computerPick==="paper")
+    ) {
+        humanScore+=1;
+        return "You Win!"
+    }
+    else {computerScore+=1; 
+        return "You Lose this one!"}
 }
 
 
 console.log(playRound(humanPick,computerPick))
+console.log(humanScore)
+console.log(computerScore)
