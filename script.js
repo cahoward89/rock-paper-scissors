@@ -25,7 +25,6 @@ let computerScore=0
 
 let humanPick=getHumanChoice().toLowerCase();
 let computerPick=getComputerChoice();
-console.log(humanPick)
 
 
 function playRound(humanPick, computerPick) {
