@@ -9,7 +9,6 @@ function getComputerChoice() {
     else {return "scissors";}
 }
 
-console.log(getComputerChoice())
 
 //The game will be played by a human player. You will write a function that takes the user choice and returns it.
 
@@ -18,7 +17,25 @@ function getHumanChoice () {
     return user
 }
 
-console.log(getHumanChoice())
 
 let humanScore=0
 let computerScore=0
+
+//Your game will be played round by round. You will write a function that takes the human and computer player choices as arguments, plays a single round, increments the round winner’s score and logs a winner announcement.
+
+let humanPick=getHumanChoice().toLowerCase();
+let computerPick=getComputerChoice();
+console.log(humanPick)
+
+
+function playRound(humanPick, computerPick) {
+
+    if (humanPick===computerPick) {return "It's a tie!";}
+    else if (humanPick==="rock" && computerPick==="scissors") {return "You Win!";}
+    else if (humanPick==="paper" && computerPick==="rock") {return "You Win!";}
+    else if (humanPick==="scissors" && computerPick==="paper") {return "You Win!";}
+    else return "Sorry, You lose!";
+}
+
+
+console.log(playRound(humanPick,computerPick))
