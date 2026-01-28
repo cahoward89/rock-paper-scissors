@@ -14,7 +14,7 @@ function getComputerChoice() {
 
 function getHumanChoice () {
     const user=prompt("Please enter Rock, Paper, or Scissors")
-    return user
+    return user.toLowerCase()
 }
 
 
@@ -23,7 +23,7 @@ let computerScore=0
 
 //Your game will be played round by round. You will write a function that takes the human and computer player choices as arguments, plays a single round, increments the round winner’s score and logs a winner announcement.
 
-let humanPick=getHumanChoice().toLowerCase();
+let humanPick=getHumanChoice();
 let computerPick=getComputerChoice();
 
 
