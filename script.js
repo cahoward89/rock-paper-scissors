@@ -69,4 +69,4 @@ function playGame (){
     else {console.log("The game ends in a tie.")}
 }
 
-console.log(playGame())
+playGame()
