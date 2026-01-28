@@ -23,9 +23,12 @@ let computerScore=0
 
 //Your game will be played round by round. You will write a function that takes the human and computer player choices as arguments, plays a single round, increments the round winner’s score and logs a winner announcement.
 
-let humanPick=getHumanChoice();
-let computerPick=getComputerChoice();
+//I don't want these to run outside of my gameloop
 
+//let humanPick=getHumanChoice();
+//let computerPick=getComputerChoice();
+
+//
 
 function playRound(humanPick, computerPick) {
 
@@ -43,6 +46,27 @@ function playRound(humanPick, computerPick) {
 }
 
 
-console.log(playRound(humanPick,computerPick))
-console.log(humanScore)
-console.log(computerScore)
+// Your game will play 5 rounds, keep track of the scores and declare a winner at the end.
+
+function playGame (){
+    for (let i = 0; i < 5; i++) {
+
+        let humanPick=getHumanChoice();
+        let computerPick=getComputerChoice();
+        let result=playRound(humanPick,computerPick)
+
+        
+        console.log("You chose " + humanPick)
+        console.log("The computer chose " + computerPick)
+        console.log(result)
+        console.log("Your Score:" + humanScore)
+        console.log("Computer Score:"+computerScore)
+        console.log("-------------------------")
+    }
+
+    if (humanScore>computerScore) {console.log("You are the Winner! Great Job!");}
+    else if (computerScore>humanScore) {console.log("The computer Wins! Better luck next time!")}
+    else {console.log("The game ends in a tie.")}
+}
+
+console.log(playGame())
