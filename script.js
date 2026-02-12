@@ -11,13 +11,14 @@ function getComputerChoice() {
 const buttons = document.querySelectorAll(".button-set button");
 buttons.forEach(button => {
     button.addEventListener("click", ()=> {
+        if (humanScore==5||computerScore==5) {return}
         const humanPick = button.textContent.toLowerCase();
         let computerPick = getComputerChoice();
         playRound(humanPick,computerPick);
         updateComputerChoice(computerPick);
         updateScoreboard();
-        if (humanScore==5) {console.log("You are the Winner! Great Job!")};
-        if (computerScore==5) {console.log("The computer Wins! Better luck next time!")};
+        if (humanScore==5) {endGame.textContent = "You are the Winner! Great Job!"};
+        if (computerScore==5) {endGame.textContent = "The computer Wins! Better luck next time!"};
     })
 })
 
@@ -44,8 +45,12 @@ let computerScore=0
 
 let para = document.createElement("p");
 para.textContent = `Your Score: ${humanScore} ||| Computer Score: ${computerScore}`
+
 let scoreboard = document.querySelector(".scoreboard");
 scoreboard.appendChild(para);
+
+let endGame = document.createElement("h1");
+
 
 function updateScoreboard() {
   para.textContent = `Your Score: ${humanScore} ||| Computer Score: ${computerScore}`;
@@ -60,7 +65,8 @@ function updateComputerChoice(computerPick){
     computerChoice.textContent = `The computer chose ${computerPick}`;
 }
 
-
+let messagediv = document.querySelector(".end-message")
+messagediv.appendChild(endGame)
 
 
 
